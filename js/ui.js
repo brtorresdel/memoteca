@@ -6,7 +6,9 @@ const ui = {
 
         try {
             const pensamentos = await api.buscarPensamentos();
-            pensamentos.forEach(pensamento => {
+            console.log(pensamentos);
+            pensamentos.length
+             ? pensamentos.forEach(pensamento => {
                 listaPensamentos.innerHTML += `
                     <li class="li-pensamento" data-id="${pensamento.id}">
                         <img src="assets/imagens/aspas-azuis.png" alt="Aspas azuis" class="icone-aspas">
@@ -20,7 +22,10 @@ const ui = {
                         </button>
                     </li>
                     `;
-            });
+            }): listaPensamentos.innerHTML = `<div class="mensagem-vazia">
+                <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
+                <img src="assets/imagens/lista-vazia.png" alt="Nenhum pensamento encontrado" class="icone-pensamento">
+            </div>`;
         } catch (error) {
             console.error('Erro ao renderizar pensamentos:', error);
         }
