@@ -3,8 +3,8 @@ const api = {
 
     async buscarPensamentos() {
         try {
-            const response = await fetch(this.urlBase);
-            return await response.json();
+            const response = await axios.get(this.urlBase);
+            return response.data;
         } catch (error) {
             alert(`Erro ao buscar pensamentos: ${error}`);
             throw error;
@@ -13,12 +13,8 @@ const api = {
 
     async salvarPensamento(pensamento) {
         try {
-            const response = await fetch(this.urlBase, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(pensamento)
-            });
-            return await response.json();
+            const response = await axios.post(this.urlBase, pensamento);
+            return response.data;
         } catch (error) {
             alert(`Erro ao salvar pensamento: ${error}`);
             throw error;
@@ -27,8 +23,8 @@ const api = {
 
     async buscarPensamentoPorId(id) {
         try {
-            const response = await fetch(`${this.urlBase}/${id}`);
-            return await response.json();
+            const response = await axios.get(`${this.urlBase}/${id}`);
+            return response.data;
         } catch (error) {
             alert(`Erro ao buscar pensamento: ${error}`);
             throw error;
@@ -37,12 +33,8 @@ const api = {
 
     async editarPensamento(pensamento) {
         try {
-            const response = await fetch(`${this.urlBase}/${pensamento.id}`, {
-                method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(pensamento)
-            });
-            return await response.json();
+            const response = await axios.put(`${this.urlBase}/${pensamento.id}`, pensamento);
+            return response.data;
         } catch (error) {
             alert(`Erro ao editar pensamento: ${error}`);
             throw error;
@@ -51,9 +43,7 @@ const api = {
 
     async excluirPensamento(pensamento) {
         try {
-            await fetch(`${this.urlBase}/${pensamento.id}`, {
-                method: 'DELETE',
-            });
+            await axios.delete(`${this.urlBase}/${pensamento.id}`);
         } catch (error) {
             alert(`Erro ao excluir pensamento: ${error}`);
             throw error;
