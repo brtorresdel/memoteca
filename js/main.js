@@ -1,4 +1,8 @@
+import api from "./api.js";
 import ui from "./ui.js";
+
+// make ui available to inline handlers (since we're using modules)
+window.ui = ui;
 
 document.addEventListener('DOMContentLoaded', () => {
     ui.renderizarPensamentos();
@@ -14,8 +18,9 @@ async function formSubmit(event) {
     event.preventDefault();
     const conteudo = document.getElementById('pensamento-conteudo').value;
     const autoria = document.getElementById('pensamento-autoria').value;
+    const id = document.getElementById('pensamento-id').value;
      try {
-        await ui.adicionarPensamento({ conteudo, autoria });
+        id ? await api.editarPensamento({ id, conteudo, autoria }) : await ui.adicionarPensamento({ conteudo, autoria });;
         ui.renderizarPensamentos();
         conteudo.value = '';
         autoria.value = '';
