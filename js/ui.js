@@ -15,6 +15,9 @@ const ui = {
                         <button class="botao-editar" onclick="ui.preencherFormularioEdicao('${pensamento.id}')">
                             <img src="assets/imagens/icone-editar.png" alt="Editar pensamento">
                         </button>
+                        <button class="botao-excluir" onclick="ui.excluirPensamento('${pensamento.id}')">
+                            <img src="assets/imagens/icone-excluir.png" alt="Excluir pensamento">
+                        </button>
                     </li>
                     `;
             });
@@ -42,7 +45,16 @@ const ui = {
         } catch (error) {
             console.error('Erro ao preencher formulário de edição:', error);
         }
-    }   
+    }, 
+
+    async excluirPensamento(id) {
+        try {
+            await api.excluirPensamento({ id });
+            this.renderizarPensamentos();
+        } catch (error) {
+            console.error('Erro ao excluir pensamento:', error);
+        }
+    }
 }
 
 export default ui;

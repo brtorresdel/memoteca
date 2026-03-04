@@ -1,21 +1,6 @@
 {
   "pensamentos": [
     {
-      "id": "2a56",
-      "conteudo": "Churrasco sexta?",
-      "autoria": "Grupo da família"
-    },
-    {
-      "id": "4c7d",
-      "conteudo": "Da vida reclama, mas sem ela não vive!",
-      "autoria": "Mestre Yoda"
-    },
-    {
-      "id": "5b8a",
-      "conteudo": "Na minha máquina funciona!",
-      "autoria": "Dev"
-    },
-    {
       "id": "68uy",
       "conteudo": "Esse é de laranja que parece de limão, mas tem gosto de tamarindo!",
       "autoria": "Chaves"
@@ -74,11 +59,6 @@
       "id": "858b",
       "conteudo": "Legal né? Hihihihih",
       "autoria": "Bruno Torres"
-    },
-    {
-      "id": "6cd6",
-      "conteudo": "Hmmmmm, cafezinho, adoro!",
-      "autoria": "Dev"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
