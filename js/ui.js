@@ -6,7 +6,6 @@ const ui = {
 
         try {
             const pensamentos = await api.buscarPensamentos();
-            console.log(pensamentos);
             pensamentos.length
              ? pensamentos.forEach(pensamento => {
                 listaPensamentos.innerHTML += `

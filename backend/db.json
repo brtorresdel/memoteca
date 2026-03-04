@@ -1,4 +1,10 @@
 {
-  "pensamentos": [],
+  "pensamentos": [
+    {
+      "id": "a6f0",
+      "conteudo": "E vai pensando",
+      "autoria": "Bruno Torres"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
