@@ -18,6 +18,15 @@ const ui = {
         } catch (error) {
             console.error('Erro ao renderizar pensamentos:', error);
         }
+    },
+
+    async adicionarPensamento(pensamento) {
+        try {
+            const pensamentoSalvo = await api.salvarPensamento(pensamento);
+            this.renderizarPensamentos();
+        } catch (error) {
+            console.error('Erro ao adicionar pensamento:', error);
+        }
     }
 }
 
